@@ -25,6 +25,13 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
 	console.log('Fetch event for:', event.request.url);
 	// TODO: serve precached static assets(you can use the isCoreGetRequest helper)
+	const request = event.request;
+	if (isCoreGetRequest(request)) {
+		console.info('Core get request: ', request.url);
+		event.respondWith(caches.open(CORE_CACHE_NAME)
+			.then(cache => cache.match(request.url))
+		)
+	}
 	// TODO: serve cached offline fallback when an HTML request fails(you can use the isHtmlGetRequest helper)
 });
 
