@@ -1,13 +1,12 @@
 # Service Worker Setup
 
-## Exercise
-
-- Fill in the web app manifest (src/assets/manifest.json){src/assets/manifest.json}. See [MDN](https://developer.mozilla.org/en-US/docs/Web/Manifest) for more info.
-- Register your web app manifest in [src/_base/layout.html](src/_base/layout.html)
-- Register your service worker in [src/_base/layout.html](src/_base/layout.html). See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/register) for more info.
-- Validate in Chrome dev tools application tab that your manifest and service worker are registered correctly.
-- Play around with the service worker life cycle events in [src/service-worker.js](src/service-worker.js).
-
 ## Solution
 
-See [01-service-worker-setup-solution]{https://github.com/voorhoede/pwa-masterclass-26-01-2018/tree/01-service-worker-setup-solution}
+- [Fill in the web app manifest](https://github.com/voorhoede/pwa-masterclass-26-01-2018/commit/4d7033029ad7b370a35848930bdb43af8db0260f)
+- [Register your web app manifest](https://github.com/voorhoede/pwa-masterclass-26-01-2018/commit/4c14f2d7857e0b035d8666ac1fb35f35effcb9ce)
+- [Register your service worker](https://github.com/voorhoede/pwa-masterclass-26-01-2018/commit/b6c7f145d6a465c8e8a704ab1eb68dfc57d787b1)
+- [Play around with the service worker life cycle events](https://github.com/voorhoede/pwa-masterclass-26-01-2018/commit/1106eb38598539d5020b855b5c7ce5ee0cc7488b).
+
+## Exercise
+
+See [01-service-worker-setup-exercise]{https://github.com/voorhoede/pwa-masterclass-26-01-2018/tree/01-service-worker-setup-exercise}
