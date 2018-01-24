@@ -33,6 +33,15 @@ self.addEventListener('fetch', event => {
 		)
 	}
 	// TODO: serve cached offline fallback when an HTML request fails(you can use the isHtmlGetRequest helper)
+	else if (isHtmlGetRequest(request)) {
+		console.info('HTML get request', request.url);
+		event.respondWith(
+			fetch(request).catch((error) => {
+				console.info('HTML fetch failed. Return offline fallback', error);
+				return caches.open(CORE_CACHE_NAME).then(cache => cache.match('/offline/'))
+			})
+		)
+	}
 });
 
 /**
