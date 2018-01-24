@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% include './app-meta.html' %}
+	<link href="{{ revUrl('app.css') }}" rel="stylesheet">
+	{% block head_extra %}{% endblock %}
+</head>
+
+<body>
+
+{% include './app-header.html' %}
+<main>
+	{% block content %}
+	{# extend this layout and insert content into this block #}
+	{% endblock %}
+</main>
+
+{% block footer %}
+
+{% endblock %}
+
+<script src="{{ revUrl('app.js') }}"></script>
+
+<script>
+	<!-- TODO: Register your service worker -->
+	(function (window) {
+		'use strict';
+
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', function() {
+				navigator.serviceWorker.register('/service-worker.js')
+					.then(function(registration) {
+						return registration.update(); // Always fetch service worker, if the new worker is not byte-by-byte the same as the installed one, it installs the new worker.
+					})
+					.catch(function(error) {
+						console.log('Service worker registration failed:', error);
+					})
+			});
+		}
+	}(window));
+</script>
+
+</body>
+</html>
