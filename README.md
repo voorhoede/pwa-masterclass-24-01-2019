@@ -1,13 +1,13 @@
 # Runtime caching
 
-## Exercise
+## Solution
 
 In your [service worker](src/service-worker.js):
 
-- Add runtime caching for images. See e.g. [cache only strategy](https://serviceworke.rs/strategy-cache-only.html) in the Service Worker Cookbook.
-- Add runtime caching for HTML pages. See [Service Worker Cookbook](https://serviceworke.rs/) for example caching strategies.
-- Add runtime caching for messages API requests. See e.g. the [cache and update strategy](https://serviceworke.rs/strategy-cache-and-update.html)in the Service Worker Cookbook.
+- [Add runtime caching for images.](https://github.com/voorhoede/pwa-masterclass-26-01-2018/commit/376766945d58d2a00d9f111f9931c0c3414b1f00)
+- [Add runtime caching for HTML pages.](https://github.com/voorhoede/pwa-masterclass-26-01-2018/commit/38e856d96f7e5c0741f52c76aca48f8d4443a0af)
+- [Add runtime caching for messages API requests.](https://github.com/voorhoede/pwa-masterclass-26-01-2018/commit/1e9e1832c92fd44151b6ec01e1c72130f338b5be)
 
-## Solution
+## Exercise
 
-See [04-runtime-caching-solution](https://github.com/voorhoede/pwa-masterclass-26-01-2018/tree/04-runtime-caching-solution)
+See [04-runtime-caching-exercise](https://github.com/voorhoede/pwa-masterclass-26-01-2018/tree/04-runtime-caching-exercise)
