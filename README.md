@@ -9,4 +9,4 @@
 
 ## Exercise
 
-See [01-service-worker-setup-exercise]{https://github.com/voorhoede/pwa-masterclass-26-01-2018/tree/01-service-worker-setup-exercise}
+See [01-service-worker-setup-exercise](https://github.com/voorhoede/pwa-masterclass-26-01-2018/tree/01-service-worker-setup-exercise)
