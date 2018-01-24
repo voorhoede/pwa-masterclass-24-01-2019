@@ -1,4 +1,4 @@
-# Hijack fetch
+# Precaching
 
 ## Exercise
 
