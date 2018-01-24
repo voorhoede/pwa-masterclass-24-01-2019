@@ -2,6 +2,7 @@
 
 // NOTE: rev hashed core assets from build will be included as global `var serviceworkerOption = { assets: [...] }` see https://www.npmjs.com/package/serviceworker-webpack-plugin
 
+const CORE_CACHE_NAME = 'core-cache';
 const CORE_ASSETS = [
 	'/offline/'
 ].concat(serviceWorkerOption.assets);
@@ -9,7 +10,10 @@ const CORE_ASSETS = [
 self.addEventListener('install', event => {
 	console.log('Installing service worker');
 	// TODO: precache static assets and offline fallback
-	return self.skipWaiting();
+	event.waitUntil(caches.open(CORE_CACHE_NAME)
+		.then(cache => cache.addAll(CORE_ASSETS))
+		.then(() => self.skipWaiting())
+	);
 });
 
 self.addEventListener('activate', event => {
