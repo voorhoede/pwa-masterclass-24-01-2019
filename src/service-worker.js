@@ -19,7 +19,20 @@ self.addEventListener('install', event => {
 self.addEventListener('activate', event => {
 	console.log('Activating service worker');
 	// TODO: invalidate outdated caches
-	return self.clients.claim();
+	event.waitUntil(
+		caches.open(CORE_CACHE_NAME).then(cache => {
+			return cache.keys().then(requests => {
+					return Promise.all(
+						requests.filter(request => {
+							return !CORE_ASSETS.includes(getPathName(request.url));
+						}).map(cacheName => {
+							return cache.delete(cacheName)
+						})
+					)
+				}
+			).then(() => self.clients.claim())
+		})
+	)
 });
 
 self.addEventListener('fetch', event => {
