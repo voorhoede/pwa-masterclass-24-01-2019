@@ -57,8 +57,47 @@ self.addEventListener('fetch', event => {
 		event.respondWith(tryCacheThenNetwork(request, 'image-cache'));
 	}
 	// TODO: add runtime caching for messages API requests(you can use the isApiGetRequest helper)
+	else if (isApiGetRequest(request)) {
+		console.info('Api get request: ', request.url);
+		event.respondWith(tryCacheThenNetwork(request, 'api-cache'));
+	}
 });
 
+self.addEventListener('message', event => {
+	let newMessage = JSON.parse(event.data);
+	newMessage.status = 'Sent'; // this is cheating
+
+	caches.open('api-cache')
+		.then(cache => {
+			return cache.match('/messages?ajax=true')
+				.then(response => {
+					return response.json()
+						.then(messages => {
+							messages.push(newMessage);
+							return messages;
+						})
+						.then(newMessages => createResponseObject(response, newMessages))
+						.then(newResponse => cache.put('/messages?ajax=true', newResponse))
+				})
+		})
+});
+
+/**
+ * Creates an HTML response object
+ *
+ * @param {Object} response        The response object
+ * @param {String} body            The body that needs to be added to the response
+ * @returns {Promise}            Resolves with the created response object
+ */
+function createResponseObject(response, body) {
+	const init = {
+		status: response.status,
+		statusText: response.statusText,
+		headers: {'content-type': 'application/json'}
+	};
+
+	return Promise.resolve(new Response([JSON.stringify(body, null, 2)], {type: 'application/json'}, init))
+}
 
 /**
  * Tries to get a response for a request from cache storage. If it can't find one, get the response from the network.

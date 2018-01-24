@@ -37,6 +37,10 @@ export function appendMessage({message, inbound, shouldCache}) {
 		linkEl.href = '/user/' + message.username;
 	}
 
+	if ('serviceWorker' in navigator && navigator.serviceWorker.controller && shouldCache) {
+		navigator.serviceWorker.controller.postMessage(JSON.stringify(message));
+	}
+
 	messageList.appendChild(clone);
 
 	window.requestAnimationFrame(setAnimation);
