@@ -23,6 +23,22 @@
 
 <script>
 	<!-- TODO: Register your service worker -->
+	(function (window) {
+		'use strict';
+
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', function() {
+				navigator.serviceWorker.register('/service-worker.js')
+					.then(function(registration) {
+						console.log('Service worker registered', registration);
+						return registration.update(); // Always fetch service worker, if the new worker is not byte-by-byte the same as the installed one, it installs the new worker.
+					})
+					.catch(function(error) {
+						console.log('Service worker registration failed:', error);
+					})
+			});
+		}
+	}(window));
 </script>
 
 </body>
