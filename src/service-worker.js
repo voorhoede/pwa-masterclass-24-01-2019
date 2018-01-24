@@ -53,6 +53,9 @@ self.addEventListener('fetch', event => {
 		)
 	}
 	// TODO: add runtime caching for images(you can use the isImageGetRequest and tryCacheThenNetwork helper)
+	else if (isImageGetRequest(request)) {
+		event.respondWith(tryCacheThenNetwork(request, 'image-cache'));
+	}
 	// TODO: add runtime caching for messages API requests(you can use the isApiGetRequest helper)
 });
 
