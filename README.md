@@ -1,4 +1,4 @@
-# Service Worker Setup
+# Hijack fetch
 
 ## Exercise
 
