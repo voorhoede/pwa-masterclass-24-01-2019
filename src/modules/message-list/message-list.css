@@ -1,0 +1,14 @@
+.message-list {
+	display: none;
+}
+
+.message-list.is-enhanced,
+.iframe .message-list {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	overflow-y: auto;
+	overflow-x: hidden;
+	margin: 0;
+	padding: calc(var(--spacing-default) / 2);
+}
