@@ -1,0 +1,13 @@
+.message-form {
+	display: flex;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	height: var(--fixed-element-height);
+	padding: calc(var(--spacing-default) / 2);
+	background-color: var(--primary-color);
+}
+
+.message-form__send {
+	margin-left: auto;
+}
