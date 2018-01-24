@@ -1,0 +1,23 @@
+{% extends "_base/layout.html" %}
+{% from "modules/message/message.html" import message %}
+
+{% block content %}
+<noscript>
+	<iframe src="/iframe#end" class="message-list__iframe" frameborder="0" width="100%" height="auto"></iframe>
+</noscript>
+
+<ul class="message-list" data-message-list></ul>
+
+<template id="message-template-outbound" style="display: none;">
+	{{ message( inbound=false ) }}
+</template>
+
+<template id="message-template-inbound" style="display: none;">
+	{{ message( inbound=true ) }}
+</template>
+{% endblock %}
+
+{% block footer %}
+{% include './modules/message-form/message-form.html' %}
+{% endblock %}
+
