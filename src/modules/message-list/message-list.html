@@ -1,0 +1,9 @@
+{% from "modules/message/message.html" import message %}
+
+<ul class="message-list" data-message-list>
+	{% for item in messages %}
+	{{ message( inbound=user.name !== item.username, message=item) }}
+	{% else %}
+	<p>No messages</p>
+	{% endfor %}
+</ul>

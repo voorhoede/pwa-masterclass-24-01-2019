@@ -1,0 +1,15 @@
+{% extends "_base/layout.html" %}
+
+{% block content %}
+<form class="login-form" name="login" method="POST" action="/login">
+
+	<label for="username">Username</label>
+	<input type="text" class="text-input" id="username" name="username"/>
+	<p class="form__error">{{ errorMessage }}</p>
+
+	<label for="avatar">Avatar url</label>
+	<input type="text" class="text-input" id="avatar" name="avatar">
+
+	<button type="submit" id="submitmsg" class="button message-form__send">Send</button>
+</form>
+{% endblock %}

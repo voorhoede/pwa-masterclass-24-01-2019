@@ -1,0 +1,6 @@
+<form class="message-form" name="message" method="POST" action="/messages/send" data-message-form>
+	<input type="hidden" name="username" value="{{ user.name }}">
+	<label for="message" class="visually-hidden">Message</label>
+	<input type="text" id="message" class="text-input" name="body"/>
+	<button type="submit" class="button message-form__send">Send</button>
+</form>
