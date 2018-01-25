@@ -1,0 +1,23 @@
+{% macro message(inbound, message) %}
+<li class="message{% if inbound %} message--inbound{% endif %}" data-message-id="{{ message.id }}">
+	{% if inbound %}
+	<div class="message__sender">
+		<a href="/user/{{ message.username }}" class="message__sender-link" data-message-link>
+			<img class="message__sender-avatar" data-message-avatar width="28" height="28"
+			     src="{{ renderAvatar(message.avatar) }}" alt="{{ message.username }}'s avatar"
+			     onerror="this.onerror=null;this.src='{{revUrl('/assets/images/avatar.svg')}}'">
+			<h2 class="message__sender-name" data-message-sender>{{ message.username }}</h2>
+		</a>
+	</div>
+	{% endif %}
+
+	<div class="message__body">
+		<p data-message-body>{{ message.body }}</p>
+	</div>
+
+	<div class="message__meta">
+		<p class="message__status" role="status" data-message-status>{{ message.status }}</p>
+		<time datetime="{{ message.date }}" data-message-time>{{ formatDate(message.date) }}</time>
+	</div>
+</li>
+{% endmacro %}

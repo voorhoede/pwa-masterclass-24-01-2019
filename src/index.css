@@ -1,0 +1,176 @@
+/**
+ * This is the main entry point for the styling of this project.
+ * Import other (partial) stylesheets this project depends on.
+ */
+@import "./modules/message/message.css";
+@import "./modules/message-form/message-form.css";
+@import "./modules/message-list/message-list.css";
+
+:root {
+	--primary-color: #1a4e57;
+	--accent-color: #0cafcd;
+	--secondary-color: #f3f3f3;
+	--background-color: #e3e3e3;
+
+	--fixed-element-height: 4rem;
+	--spacing-default: 16px;
+	--font-size-s: .9rem;
+	--font-size-m: 1rem;
+	--font-size-l: 1.1rem;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	background-color: var(--background-color);
+}
+
+h1, h2, p {
+	margin: 0;
+}
+
+h1 {
+	font-size: 1.2rem;
+	text-transform: uppercase;
+}
+
+ul {
+	list-style: none;
+}
+
+.app-header {
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: calc(var(--spacing-default) / 2);
+	height: var(--fixed-element-height);
+	background-color: var(--primary-color);;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, .25);
+}
+
+.app-header__title {
+	color: var(--accent-color);
+}
+
+.app-header__toggle-notifications {
+	border: 0;
+	cursor: pointer;
+	text-decoration: none;
+	background-color: transparent;
+	padding: 0
+}
+
+[data-push-message] {
+	display: none;
+}
+
+[data-push-message].is-enhanced {
+	display: inline;
+}
+
+.app-header__avatar {
+	object-fit: cover;
+}
+
+.app-header__welcome {
+	margin-left: auto;
+	color: var(--accent-color);
+}
+
+.app-header__actions {
+	margin-left: auto;
+}
+
+.app-header__actions a {
+	text-decoration: none;
+}
+
+main {
+	padding: var(--fixed-element-height) 0;
+	height: 100vh;
+}
+
+/* BUTTONS */
+.button {
+	border: 0;
+	cursor: pointer;
+	text-decoration: none;
+	text-transform: uppercase;
+	user-select: none;
+	align-items: center;
+	padding: calc(var(--spacing-default) / 2);
+	transition: all .1s linear;
+	white-space: nowrap;
+	background-color: var(--primary-color);
+	font-size: var(--font-size-m);
+	color: white;
+	box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+.button:not(:disabled):hover,
+.button:not(:disabled):focus {
+	text-decoration: none;
+	background-color: var(--accent-color);
+	color: var(--primary-color);
+}
+
+.button:focus {
+	outline: 0;
+}
+
+.button:disabled {
+	color: lightgray;
+	background-color: lightgray;
+	cursor: inherit;
+}
+
+/* FORMS */
+.text-input {
+	width: 70%;
+	padding: calc(var(--spacing-default) / 2);
+	border: none;
+	box-shadow: 0 0 0 2px hsl(0, 0%, 90%);
+	transition: box-shadow .05s ease-in-out;
+	font-size: 1rem;
+	line-height: 1rem;
+}
+
+.text-input:focus {
+	outline: 0;
+	box-shadow: 0 0 0 3px hsl(0, 0%, 80%),
+	0 0 0 3px hsl(0, 0%, 90%);
+}
+
+.form__error {
+	color: red;
+}
+
+.visually-hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+.message-list__iframe {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
