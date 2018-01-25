@@ -5,9 +5,10 @@ const MESSAGE_ID_ATTRIBUTE = 'data-message-id';
 const MESSAGE_STATUS_SELECTOR = '[data-message-status]';
 const MESSAGE_FORM_SELECTOR = '[data-message-form]';
 const backgroundSyncIsSupported = 'serviceWorker' in navigator && 'SyncManager' in window;
+let chatDb;
 
 if (backgroundSyncIsSupported) {
-	const chatDb = idb.open('chatDb', 1, upgradeDB => { // eslint-disable-line no-undef
+	chatDb = idb.open('chatDb', 1, upgradeDB => { // eslint-disable-line no-undef
 		upgradeDB.createObjectStore('messages', {keyPath: 'key'});
 	});
 }
