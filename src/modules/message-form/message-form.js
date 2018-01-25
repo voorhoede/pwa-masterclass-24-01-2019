@@ -21,7 +21,14 @@ const initMessageForm = () => {
 
 		if (backgroundSyncIsSupported) {
 			// TODO: Add an event listener for post message from the service worker.
-			// TODO: Update UI message status from `Sending` to `Sent` when receiving a postMessage.
+			navigator.serviceWorker.addEventListener('message', event => {
+				// TODO: Update UI message status from `Sending` to `Sent` when receiving a postMessage.
+				event.data.messages.forEach(message => {
+					document
+						.querySelector(`[${MESSAGE_ID_ATTRIBUTE}="${message.id}"]`)
+						.querySelector(MESSAGE_STATUS_SELECTOR).textContent = message.status;
+				})
+			})
 		}
 	}
 };
