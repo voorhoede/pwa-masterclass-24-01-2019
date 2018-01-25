@@ -94,7 +94,10 @@ self.addEventListener('sync', event => {
 });
 
 // TODO: add a event listener for push
-// TODO: on push add an actual notification
+self.addEventListener('push', event => {
+	// TODO: on push add an actual notification
+	console.info('Received push event', event);
+});
 
 /**
  * Sends all chat messages from local message database to server
