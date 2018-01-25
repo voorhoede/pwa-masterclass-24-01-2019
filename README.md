@@ -1,6 +1,6 @@
 # Background sync
 
-## Exercise
+## Solution
 
 In your service worker:
 
