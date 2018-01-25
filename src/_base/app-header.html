@@ -1,0 +1,22 @@
+<header class="app-header">
+	<h1 class="app-header__title">Websap!</h1>
+
+	{% if user %}
+	<p class="app-header__welcome">Hi {{ user.name }}</p>
+
+	<div class="app-header__actions">
+		<button class="app-header__toggle-notifications" aria-label="Toggle notifications" title="Toggle notifications"
+		        data-push-message>
+			<img src="{{ revUrl('/assets/images/bell-ring.svg') }}" width="32" height="32" alt="" role="presentation">
+		</button>
+		<a href="/user/{{ user.name }}" data-username="{{ user.name }}" aria-label="{ user.name }}'s profile"
+		   title="{ user.name }}'s profile">
+			<img src="{{ renderAvatar(user.avatar) }}" class="app-header__avatar" width="32" height="32" alt=""
+			     role="presentation">
+		</a>
+		<a href="/logout" aria-label="Logout" title="Logout">
+			<img src="{{ revUrl('/assets/images/logout.svg') }}" width="32" height="32" alt="" role="presentation">
+		</a>
+	</div>
+	{% endif %}
+</header>
