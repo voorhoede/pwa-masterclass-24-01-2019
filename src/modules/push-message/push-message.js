@@ -15,12 +15,10 @@ export function getPermission() {
 			switch (status.state) {
 				case 'prompt':
 					console.info('Notifications prompt');
-					// TODO: ask permission for push notifications
 					Notification.requestPermission().then(permissionStatus => {
 						if (permissionStatus !== 'granted') {
 							throw new Error('We weren\'t granted permission.');
 						} else {
-							// TODO: if the result is granted, call subscribeUserToPush
 							subscribeUserToPush();
 						}
 					});

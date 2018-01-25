@@ -93,7 +93,6 @@ self.addEventListener('sync', event => {
 	}
 });
 
-// TODO: add a event listener for push
 self.addEventListener('push', event => {
 	const payload = event.data ? JSON.parse(event.data.text()) : 'no payload';
 	const title = `Message from ${payload.username}`;
@@ -101,7 +100,6 @@ self.addEventListener('push', event => {
 
 	console.info(`received push message from ${title}: "${body}"`);
 	event.waitUntil(
-		// TODO: on push add an actual notification
 		self.registration.showNotification(title, {
 			body,
 			icon: '/assets/images/icon-72x72.png',
