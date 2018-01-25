@@ -1,21 +1,19 @@
 # Push notifications
 
-## Exercise
+## Solution
 
-In [push-message.js](src/modules/push-message.js):
+In push-message.js:
 
-- Request permission for notifications. See [MDN - requestPermission](https://developer.mozilla.org/en-US/docs/Web/API/Notification/requestPermission) for more info.
-- If granted send the push subscription to the back-end(use the `subscribeUserToPush()` helper function).
+- Request permission for notifications.
+- If granted send the push subscription to the back-end.
+
+See [commit](https://github.com/voorhoede/pwa-masterclass-26-01-2018/commit/8ec3509898ffe82d2047605211b1ccb714b16bab).
 
 In your [service worker](src/service-worker.js):
 
-- Add a `push` event listener and test it with Chrome dev tools.
-- Add an actual notification on a push event. See [MDN - showNotification](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification) for more info.
-  - Note that the service worker registration can be found in your service worker as `self.registration`.
-- Test with different browsers that you actually get notifications. You can use `npm run proxy` to expose localhost and test on your phone(even when the app is not open!).
+- [Add a `push` event listener.](https://github.com/voorhoede/pwa-masterclass-26-01-2018/commit/be4393f40f14f3c7d2b8cc2a5a151ff3325688e5)
+- [Add an actual notification on a push event.](https://github.com/voorhoede/pwa-masterclass-26-01-2018/commit/0463edba104b0de4153aefff7ce26384e5dd076e)
 
-For extensive information on web push messages in general see [Google Developers](https://developers.google.com/web/ilt/pwa/introduction-to-push-notifications)
+## Exercise
 
-## Solution
-
-See [06-push-notifications-solution](https://github.com/voorhoede/pwa-masterclass-26-01-2018/tree/06-push-notifications-solution)
+See [06-push-notifications-exercise](https://github.com/voorhoede/pwa-masterclass-26-01-2018/tree/06-push-notifications-exercise)
