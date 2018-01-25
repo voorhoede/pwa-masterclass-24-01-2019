@@ -39,7 +39,7 @@ function subscribeUserToPush() {
 			registration.pushManager.subscribe({
 				userVisibleOnly: true,
 				applicationServerKey: convertedVapidKey
-			}).then(function (pushSubscription) {
+			}).then(pushSubscription => {
 				console.info('Received PushSubscription: ', JSON.stringify(pushSubscription));
 				sendSubscriptionToBackEnd(pushSubscription);
 			});
@@ -57,13 +57,13 @@ function sendSubscriptionToBackEnd(subscription) {
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify(subscription)
-	}).then(function (response) {
+	}).then(response => {
 		if (!response.ok) {
 			throw new Error('Bad status code from server.');
 		}
 
 		return response.json();
-	}).then(function (responseData) {
+	}).then(responseData => {
 		if (!(responseData.data && responseData.data.success)) {
 			throw new Error('Bad response from server.');
 		}
