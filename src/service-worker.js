@@ -81,6 +81,12 @@ self.addEventListener('message', event => {
 });
 
 // TODO: Add an event listener for the `sync` event and add a tag.
+self.addEventListener('sync', event => {
+	if (event.tag === 'syncChats') {
+		console.log('sync event');
+	}
+});
+
 // TODO: In your sync event handler send queued chats(use `sendChats` helper)
 // TODO: When done sending queued chat messages send a post message to the client(use the `postMessage` helper)
 
