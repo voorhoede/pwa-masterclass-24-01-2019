@@ -143,6 +143,30 @@ function sendSingleChat(message) {
 }
 
 /**
+ * Sends a postmessage to all clients
+ *
+ * @param  {String} message
+ * @returns {Promise}
+ */
+function postMessage(message) {
+	self.clients.matchAll().then(clients => {
+		clients.forEach(client => {
+			return new Promise((resolve, reject) => {
+				const msgChannel = new MessageChannel();
+				msgChannel.port1.onmessage = event => {
+					if (event.data.error) {
+						reject(event.data.error);
+					} else {
+						resolve(event.data);
+					}
+				};
+				client.postMessage(message, [msgChannel.port2]);
+			});
+		});
+	});
+}
+
+/**
  * Creates an HTML response object
  *
  * @param {Object} response        The response object
