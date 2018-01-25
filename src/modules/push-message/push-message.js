@@ -43,10 +43,6 @@ function subscribeUserToPush() {
 				console.info('Received PushSubscription: ', JSON.stringify(pushSubscription));
 				sendSubscriptionToBackEnd(pushSubscription);
 			});
-		})
-		.then((pushSubscription) => {
-			console.info('Received PushSubscription: ', JSON.stringify(pushSubscription));
-			return pushSubscription;
 		});
 }
 
