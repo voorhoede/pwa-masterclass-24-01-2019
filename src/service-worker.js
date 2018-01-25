@@ -149,10 +149,10 @@ function sendSingleChat(message) {
 /**
  * Sends a postmessage to all clients
  *
- * @param  {String} message
+ * @param  {Object} messages object
  * @returns {Promise}
  */
-function postMessage(message) {
+function postMessage(messages) {
 	self.clients.matchAll().then(clients => {
 		clients.forEach(client => {
 			return new Promise((resolve, reject) => {
@@ -164,7 +164,7 @@ function postMessage(message) {
 						resolve(event.data);
 					}
 				};
-				client.postMessage(message, [msgChannel.port2]);
+				client.postMessage(messages, [msgChannel.port2]);
 			});
 		});
 	});
