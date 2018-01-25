@@ -122,6 +122,34 @@ self.addEventListener('push', event => {
 	);
 });
 
+
+self.addEventListener('notificationclick', (event) => {
+	const notification = event.notification;
+	const action = event.action;
+
+	if (action === 'close') {
+		notification.close();
+	} else {
+		event.waitUntil(self.clients.matchAll({
+			type: "window"
+		}).then(clients => {
+			const visibleNonFocusedClient = clients.find(client => client.visibilityState === 'visible' && !client.focused);
+			if (visibleNonFocusedClient) {
+				visibleNonFocusedClient.focus();
+			} else {
+				return self.clients.openWindow('/');
+			}
+		}));
+	}
+
+	// close all notifications
+	self.registration.getNotifications().then(notifications => {
+		notifications.forEach(notification => {
+			notification.close();
+		});
+	});
+});
+
 /**
  * Sends all chat messages from local message database to server
  *
