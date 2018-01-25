@@ -4,6 +4,10 @@
 // NOTE: rev hashed core assets from build will be included as global `var serviceworkerOption = { assets: [...] }` see https://www.npmjs.com/package/serviceworker-webpack-plugin
 
 importScripts('./assets/idb.js');
+// Instantiate IDB
+const chatDb = idb.open('chatDb', 1, upgradeDB => { // eslint-disable-line no-undef
+	upgradeDB.createObjectStore('messages', {keyPath: ''});
+});
 
 const CORE_CACHE_NAME = 'core-cache';
 const CORE_ASSETS = [
