@@ -1,18 +1,14 @@
 # Push notifications
 
+## Bonus
+
+- [Don't show notification to sender by filtering out sender.](https://github.com/voorhoede/pwa-masterclass-26-01-2018/commit/72378488f0b5eb0154bedad0cfd3e4231719e23e)
+- [Don't show notification if client is open and focused.](https://github.com/voorhoede/pwa-masterclass-26-01-2018/commit/5ae62894b673fc7afb2b458079f7569833de5217)
+- [Add notification click handler.](https://github.com/voorhoede/pwa-masterclass-26-01-2018/commit/ce1f5355c409d6e0fe9c63e8e3dcbb46bdd7741e)
+
 ## Solution
 
-In push-message.js:
-
-- Request permission for notifications.
-- If granted send the push subscription to the back-end.
-
-See [commit](https://github.com/voorhoede/pwa-masterclass-26-01-2018/commit/8ec3509898ffe82d2047605211b1ccb714b16bab).
-
-In your [service worker](src/service-worker.js):
-
-- [Add a `push` event listener.](https://github.com/voorhoede/pwa-masterclass-26-01-2018/commit/be4393f40f14f3c7d2b8cc2a5a151ff3325688e5)
-- [Add an actual notification on a push event.](https://github.com/voorhoede/pwa-masterclass-26-01-2018/commit/0463edba104b0de4153aefff7ce26384e5dd076e)
+See [06-push-notifications-solution](https://github.com/voorhoede/pwa-masterclass-26-01-2018/tree/06-push-notifications-solution)
 
 ## Exercise
 
