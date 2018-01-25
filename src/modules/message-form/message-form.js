@@ -45,6 +45,11 @@ function onFormSubmit(e) {
 
 	if (backgroundSyncIsSupported) {
 		// TODO: Store message using storeChat helper and register a sync event
+		storeChat(message).then(() => {
+			return navigator.serviceWorker.ready.then(registration => {
+				return registration.sync.register('syncChats');
+			});
+		})
 	} else {
 		fetch('/messages/send?ajax=true', {
 			method: 'POST',
