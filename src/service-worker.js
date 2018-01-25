@@ -51,7 +51,8 @@ self.addEventListener('fetch', event => {
 				console.info('HTML fetch failed. Return offline fallback', error);
 				return caches.open(CORE_CACHE_NAME).then(cache => cache.match('/offline/'))
 			})
-		)
+		);
+		event.waitUntil(fetchAndCache(request, 'html-cache'));
 	} else if (isImageGetRequest(request)) {
 		event.respondWith(tryCacheThenNetwork(request, 'image-cache'));
 	} else if (isApiGetRequest(request)) {
