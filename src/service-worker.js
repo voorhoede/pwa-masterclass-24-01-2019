@@ -46,11 +46,11 @@ self.addEventListener('fetch', event => {
 	else if (isHtmlGetRequest(request)) {
 		console.info('HTML get request', request.url);
 		event.respondWith(
-			tryCacheThenNetwork(request, 'html-cache').catch((error) => {
+			fetch(request).catch((error) => {
 				console.info('HTML fetch failed. Return offline fallback', error);
 				return caches.open(CORE_CACHE_NAME).then(cache => cache.match('/offline/'))
 			})
-		)
+		);
 	}
 	// TODO: add runtime caching for images(you can use the isImageGetRequest and tryCacheThenNetwork helper)
 	else if (isImageGetRequest(request)) {
