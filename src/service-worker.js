@@ -123,6 +123,15 @@ function sendChats() {
 }
 
 /**
+ * Get all messages from local message database
+ *
+ * @returns {Promise}
+ */
+function getAllMessagesFromStore() {
+	return chatDb.then(db => db.transaction('messages', 'readwrite').objectStore('messages').getAll());
+}
+
+/**
  * Send a chat message to the server
  *
  * @param  {Object} message Chat message, as defined in message-form.js
