@@ -18,9 +18,9 @@ For extensive information on web push messages in general see [Google Developers
 
 ## Solution
 
-See [06-push-notifications-solution](https://github.com/voorhoede/pwa-masterclass-26-01-2018/tree/06-push-notifications-solution)
+See [06-push-notifications-solution](https://github.com/voorhoede/pwa-masterclass-6-7-2018/tree/06-push-notifications-solution)
 
 ## Bonus
 
-See [06-push-notifications-solution-bonus](https://github.com/voorhoede/pwa-masterclass-26-01-2018/tree/06-push-notifications-solution-bonus)
+See [06-push-notifications-solution-bonus](https://github.com/voorhoede/pwa-masterclass-6-7-2018/tree/06-push-notifications-solution-bonus)
 
