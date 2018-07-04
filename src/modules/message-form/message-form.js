@@ -78,11 +78,15 @@ function onFormSubmit(e) {
 }
 
 function getRegistrationEndpoint() {
-	return navigator.serviceWorker.getRegistration()
-		.then(registration => registration.pushManager.getSubscription()
-			.then(subscription => subscription ? subscription.endpoint : null)
-		)
-
+	if ('PushManager' in window) {
+		return navigator.serviceWorker.getRegistration()
+			.then(registration => registration.pushManager.getSubscription()
+				.then(subscription => subscription ? subscription.endpoint : null)
+			)
+	} else {
+		// push notification not supported, just return null
+		return Promise.resolve(null)
+	}
 }
 
 /**
