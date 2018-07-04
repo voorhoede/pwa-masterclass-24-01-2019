@@ -10,4 +10,4 @@
 
 ## Solution
 
-See [01-service-worker-setup-solution](https://github.com/voorhoede/pwa-masterclass-26-01-2018/tree/01-service-worker-setup-solution)
+See [01-service-worker-setup-solution](https://github.com/voorhoede/pwa-masterclass-6-7-2018/tree/01-service-worker-setup-solution)
