@@ -2,7 +2,7 @@
 
 ## Exercise
 
-In [push-message.js](src/modules/push-message.js):
+In [push-message.js](src/modules/push-message/push-message.js):
 
 - Request permission for notifications. See [MDN - requestPermission](https://developer.mozilla.org/en-US/docs/Web/API/Notification/requestPermission) for more info.
 - If granted send the push subscription to the back-end(use the `subscribeUserToPush()` helper function).
