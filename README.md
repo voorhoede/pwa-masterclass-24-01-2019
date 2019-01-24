@@ -27,4 +27,4 @@ In [message-form.js](src/components/message-form.js):
 
 ## Exercise
 
-See [05-background-sync-solution](https://github.com/voorhoede/pwa-masterclass-6-7-2018/tree/05-background-sync-solution)
+See [05-background-sync-solution](https://github.com/voorhoede/pwa-masterclass-24-01-2019/tree/05-background-sync-solution)
