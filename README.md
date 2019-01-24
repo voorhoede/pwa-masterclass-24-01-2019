@@ -6,4 +6,4 @@
 
 ## Solution
 
-See [02-hijack-fetch-solution](https://github.com/voorhoede/pwa-masterclass-6-7-2018/tree/02-hijack-fetch-solution)
+See [02-hijack-fetch-solution](https://github.com/voorhoede/pwa-masterclass-24-01-2019/tree/02-hijack-fetch-solution)
