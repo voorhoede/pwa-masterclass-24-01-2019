@@ -10,4 +10,4 @@ In your [service worker](src/service-worker.js):
 
 ## Solution
 
-See [04-runtime-caching-solution](https://github.com/voorhoede/pwa-masterclass-6-7-2018/tree/04-runtime-caching-solution)
+See [04-runtime-caching-solution](https://github.com/voorhoede/pwa-masterclass-24-01-2019/tree/04-runtime-caching-solution)
