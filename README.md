@@ -12,4 +12,4 @@ In your [service worker](src/service-worker.js):
 
 ## Solution
 
-See [03-precaching-solution](https://github.com/voorhoede/pwa-masterclass-6-7-2018/tree/03-precaching-solution)
+See [03-precaching-solution](https://github.com/voorhoede/pwa-masterclass-24-01-2019/tree/03-precaching-solution)
