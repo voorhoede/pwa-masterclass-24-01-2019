@@ -5,6 +5,9 @@
 	<p class="app-header__welcome">Hi {{ user.name }}</p>
 
 	<div class="app-header__actions">
+		<button class="app-header__get-app" aria-label="Add to homescreen" title="Add to homescreen" data-add-to-homescreen>
+			<img src="{{ revUrl('/assets/images/get-app.svg') }}" width="32" height="32" alt="" role="presentation">
+		</button>
 		<button class="app-header__toggle-notifications" aria-label="Toggle notifications" title="Toggle notifications"
 		        data-push-message>
 			<img src="{{ revUrl('/assets/images/bell-ring.svg') }}" width="32" height="32" alt="" role="presentation">

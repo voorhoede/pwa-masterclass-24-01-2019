@@ -64,7 +64,8 @@ ul {
 	color: var(--accent-color);
 }
 
-.app-header__toggle-notifications {
+.app-header__toggle-notifications,
+.app-header__get-app {
 	border: 0;
 	cursor: pointer;
 	text-decoration: none;
@@ -72,11 +73,13 @@ ul {
 	padding: 0
 }
 
-[data-push-message] {
+[data-push-message],
+[data-add-to-homescreen] {
 	display: none;
 }
 
-[data-push-message].is-enhanced {
+[data-push-message].is-enhanced,
+[data-add-to-homescreen].is-enhanced {
 	display: inline;
 }
 
