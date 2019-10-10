@@ -12,6 +12,7 @@ module.exports = {
   "rules": {
     "no-console": isProduction ? ["error", {allow: ["info", "warn", "error"]}] : ["off"],
     "no-debugger": isProduction ? ["error"] : ["off"],
-    "no-unused-vars": isProduction ? ["error"] : ["off"]
+    "no-unused-vars": isProduction ? ["error"] : ["off"],
+    "no-undef": isProduction ? ["error"] : ["off"],
   }
 };
