@@ -26,8 +26,7 @@
     "babel-plugin-syntax-dynamic-import": "6.18.0",
     "babel-preset-env": "1.6.1",
     "copy-webpack-plugin": "4.3.1",
-    "css-loader": "0.28.7",
-    "cssnano": "3.10.0",
+    "css-loader": "3.2.0",
     "eslint": "4.16.0",
     "extract-text-webpack-plugin": "3.0.2",
     "gulp": "4.0.0",
@@ -53,9 +52,8 @@
     "body-parser": "1.18.2",
     "cookie-parser": "1.4.3",
     "express": "4.16.2",
-    "helmet": "3.9.0",
-    "nunjucks": "3.0.1",
-    "shrink-ray-current": "2.1.1",
+    "helmet": "^3.21.1",
+    "nunjucks": "^3.2.0",
     "web-push": "3.2.5"
   }
 }
