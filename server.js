@@ -8,7 +8,6 @@ const nunjucks = require('nunjucks');
 const path = require('path');
 const revConfig = require('./lib/rev-config');
 const revUrl = require('./lib/rev-url');
-const shrinkRay = require('shrink-ray-current');
 const urlParser = require('url');
 const formatDate = require('./lib/format-date');
 const renderAvatar = require('./lib/render-avatar');
@@ -61,13 +60,11 @@ app.use('*/index.html', (req, res) => res.redirect(301, `${path.dirname(req.orig
  * - Enable validating cached responses using `etag`s: https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching#validating_cached_responses_with_etags
  * - Remove unneeded headers ('X-Powered-By' (done by Helmet), 'lastMofied') to safe bytes
  * - Set immutable headers on revisioned files with `revConfig.pattern`: https://bitsup.blogspot.nl/2016/05/cache-control-immutable.html
- * - Enable dynamic gzip and Brotli compression using Shrink-ray: https://github.com/aickin/shrink-ray
  * - Serve (revisioned) files from `cacheDir` when available.
  */
 app.set('etag', true);
 app.use(helmet());
 app.use(revConfig.pattern, cacheControlImmutable);
-app.use(shrinkRay());
 app.use(express.static(path.join(__dirname, config.cacheDir), {index: false, lastModified: false}));
 
 /**
