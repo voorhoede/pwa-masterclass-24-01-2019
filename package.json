@@ -14,9 +14,6 @@
     "build": "webpack --env production",
     "watch": "webpack --env production --watch"
   },
-  "engines": {
-    "node": "8.12"
-  },
   "author": "De Voorhoede",
   "license": "MIT",
   "devDependencies": {
