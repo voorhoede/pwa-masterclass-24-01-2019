@@ -1,20 +1,13 @@
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 
 exports.extractCSS = ({include, exclude} = {}) => {
-  // Output extracted CSS to a file
-  const plugin = new ExtractTextPlugin({
-    // `allChunks` is needed with CommonsChunkPlugin to extract
-    // from extracted chunks as well.
-    allChunks: true,
-    filename: "[name]-[contenthash:7].css",
-  });
-
   return {
     module: {
       rules: [
         {
           test: /\.css$/,
-          use: plugin.extract([
+          use: [
+            ExtractCssChunks.loader,
             {
               loader: 'css-loader',
               options: {importLoaders: 1},
@@ -25,11 +18,16 @@ exports.extractCSS = ({include, exclude} = {}) => {
                 sourceMap: true
               }
             },
-          ]),
+          ],
         },
       ],
     },
-    plugins: [plugin],
+    plugins: [
+      new ExtractCssChunks({
+        filename: '[name].[hash:7].css',
+        chunkFilename: '[id].[hash:7].css',
+      }),
+    ],
   };
 };
 
