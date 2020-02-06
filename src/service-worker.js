@@ -94,31 +94,50 @@ self.addEventListener('sync', event => {
 });
 
 self.addEventListener('push', event => {
-	const payload = event.data ? JSON.parse(event.data.text()) : 'no payload';
-	const title = `Message from ${payload.username}`;
-	const body = payload.body;
-
-	console.info(`received push message from ${title}: "${body}"`);
 	event.waitUntil(
-		self.clients.matchAll().then(clients => {
-			const nonActiveClient = clients.find(client => {
-				return client.visibilityState === 'hidden' || (client.visibilityState === 'visible' && !client.focused)
-			});
-
-			const shouldShowNotification = !!(!clients.length || nonActiveClient);
-
-			if (shouldShowNotification) {
-				// Show notification
-				self.registration.showNotification(title, {
-					body,
+		self.registration.getNotifications()
+			.then(notifications => {
+				let notificationTitle;
+				const options = {
 					icon: '/assets/images/icon-72x72.png',
-					// tag: 'message',
+					tag: 'message',
 					vibrate: [300, 100, 400],
+				};
+				const notificationCount = notifications.length;
+
+				if (notificationCount) {
+					const currentNotification = notifications[notificationCount - 1];
+					const newMessageCount = currentNotification.data.newMessageCount + 1;
+					notificationTitle = 'New messages from Websap';
+					options.body = `You have ${newMessageCount} new messages`;
+					options.data = {
+						newMessageCount
+					}
+					currentNotification.close();
+				} else {
+					const payload = event.data ? JSON.parse(event.data.text()) : 'no payload';
+					notificationTitle = `Message from ${payload.username}`;
+					options.body = payload.body;
+					options.data = {
+						newMessageCount: 1
+					};
+				}
+
+				self.clients.matchAll().then(clients => {
+					const nonActiveClient = clients.find(client => {
+						return client.visibilityState === 'hidden' || (client.visibilityState === 'visible' && !client.focused)
+					});
+
+					const shouldShowNotification = !!(!clients.length || nonActiveClient);
+
+					if (shouldShowNotification) {
+						// Show notification
+						self.registration.showNotification(notificationTitle, options)
+					} else {
+						console.info('Don\'t show notification: Chat app is already open!');
+					}
 				})
-			} else {
-				console.info('Don\'t show notification: Chat app is already open!');
-			}
-		})
+			})
 	);
 });
 
