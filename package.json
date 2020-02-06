@@ -41,7 +41,7 @@
     "webpack": "4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-manifest-plugin": "2.2.0",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
     "body-parser": "1.19.0",
     "cookie-parser": "1.4.4",
     "express": "4.17.1",
