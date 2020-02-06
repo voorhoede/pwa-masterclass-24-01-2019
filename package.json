@@ -16,7 +16,7 @@
   },
   "author": "De Voorhoede",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "autoprefixer": "9.7.4",
     "babel-core": "6.26.3",
     "babel-loader": "8.0.6",
@@ -42,8 +42,6 @@
     "webpack-cli": "^3.3.10",
     "webpack-manifest-plugin": "2.2.0",
     "webpack-merge": "^4.2.2"
-  },
-  "dependencies": {
     "body-parser": "1.19.0",
     "cookie-parser": "1.4.4",
     "express": "4.17.1",
