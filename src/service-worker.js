@@ -62,6 +62,7 @@ self.addEventListener('fetch', event => {
 	} else if (isApiGetRequest(request)) {
 		console.info('Api get request: ', request.url);
 		event.respondWith(tryCacheThenNetwork(request, 'api-cache'));
+		event.waitUntil(fetchAndCache(request, HTML_CACHE_NAME))
 	}
 });
 
