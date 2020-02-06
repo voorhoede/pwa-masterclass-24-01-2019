@@ -13,6 +13,7 @@ const PATHS = {
 
 const commonConfig = merge([
   {
+    mode: 'production',
     entry: {
       app: PATHS.app,
     },
